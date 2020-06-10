@@ -23,7 +23,7 @@ import { ColorUtils } from '../utils/colorUtils';
 const MIN_POSE_SCORE = 0.1;
 const MIN_FACE_SCORE = 0.8;
 
-const posePartNames = ['leftAnkle', 'leftKnee', 'leftHip', 'leftWrist', 'leftElbow', 'leftShoulder', 
+const posePartNames = ['leftAnkle', 'leftKnee', 'leftHip', 'leftWrist', 'leftElbow', 'leftShoulder',
     'rightAnkle', 'rightKnee', 'rightHip', 'rightWrist', 'rightElbow', 'rightShoulder',
     'leftEar', 'rightEar'];
 
@@ -36,28 +36,28 @@ export const facePartName2Index = {
     'leftTop1': 284,
     'rightJaw0': 21,
     'rightJaw1': 162,
-    'rightJaw2': 127, 
+    'rightJaw2': 127,
     'rightJaw3': 234,
-    'rightJaw4': 132, 
-    'rightJaw5': 172, 
+    'rightJaw4': 132,
+    'rightJaw5': 172,
     'rightJaw6': 150,
     'rightJaw7': 176,
     'jawMid': 152,   // 0 - 8
-    'leftJaw7': 400, 
-    'leftJaw6': 379, 
-    'leftJaw5': 397, 
+    'leftJaw7': 400,
+    'leftJaw6': 379,
+    'leftJaw5': 397,
     'leftJaw4': 361,
     'leftJaw3': 454,
     'leftJaw2': 356,
     'leftJaw1': 389,
     'leftJaw0': 251, // 9 - 16
-    'rightBrow0': 46, 
-    'rightBrow1': 53, 
+    'rightBrow0': 46,
+    'rightBrow1': 53,
     'rightBrow2': 52,
     'rightBrow3': 65,
     'rightBrow4': 55, // 17 - 21
     'leftBrow4': 285,
-    'leftBrow3': 295, 
+    'leftBrow3': 295,
     'leftBrow2': 282,
     'leftBrow1': 283,
     'leftBrow0': 276, // 22 - 26
@@ -67,7 +67,7 @@ export const facePartName2Index = {
     'nose3': 5, // 27 - 30
     'rightNose0': 48,
     'rightNose1': 220,
-    'nose4': 4, 
+    'nose4': 4,
     'leftNose1': 440,
     'leftNose0': 278, // 31 - 35
     'rightEye0': 33,
@@ -80,7 +80,7 @@ export const facePartName2Index = {
     'leftEye2': 385,
     'leftEye1': 387,
     'leftEye0': 263,
-    'leftEye5': 373, 
+    'leftEye5': 373,
     'leftEye4': 380, // 42 - 47
     'rightMouthCorner': 61,
     'rightUpperLipTop0': 40,
@@ -99,13 +99,13 @@ export const facePartName2Index = {
     'upperLipBottomMid': 13,
     'leftUpperLipBottom1': 311,
     'leftMiddleLip': 308, // 60 - 64
-    'leftLowerLipTop0': 402, 
+    'leftLowerLipTop0': 402,
     'lowerLipTopMid': 14,
     'rightLowerLipTop0': 178, // 65 - 67
 };
 
 const facePartNames = [
-    'topMid', 'rightTop0', 'rightTop1', 'leftTop0', 'leftTop1',
+    // 'topMid', 'rightTop0', 'rightTop1', 'leftTop0', 'leftTop1',
     'rightJaw0', 'rightJaw1', 'rightJaw2', 'rightJaw3', 'rightJaw4', 'rightJaw5', 'rightJaw6', 'rightJaw7', 'jawMid',   // 0 - 8
     'leftJaw7', 'leftJaw6', 'leftJaw5', 'leftJaw4', 'leftJaw3', 'leftJaw2', 'leftJaw1', 'leftJaw0', // 9 - 16
     'rightBrow0', 'rightBrow1', 'rightBrow2', 'rightBrow3', 'rightBrow4', // 17 - 21
@@ -214,11 +214,11 @@ export class Skeleton {
         let rightShoulder = getKeyPointFromSVG(skeletonGroup, 'rightShoulder');
 
         // Face
-        let topMid = getKeyPointFromSVG(skeletonGroup, 'topMid');
-        let rightTop0 = getKeyPointFromSVG(skeletonGroup, 'rightTop0');
-        let rightTop1 = getKeyPointFromSVG(skeletonGroup, 'rightTop1');
-        let leftTop0 = getKeyPointFromSVG(skeletonGroup, 'leftTop0');
-        let leftTop1 = getKeyPointFromSVG(skeletonGroup, 'leftTop1');
+        // let topMid = getKeyPointFromSVG(skeletonGroup, 'topMid');
+        // let rightTop0 = getKeyPointFromSVG(skeletonGroup, 'rightTop0');
+        // let rightTop1 = getKeyPointFromSVG(skeletonGroup, 'rightTop1');
+        // let leftTop0 = getKeyPointFromSVG(skeletonGroup, 'leftTop0');
+        // let leftTop1 = getKeyPointFromSVG(skeletonGroup, 'leftTop1');
         let leftJaw2 = getKeyPointFromSVG(skeletonGroup, 'leftJaw2');
         let leftJaw3 = getKeyPointFromSVG(skeletonGroup, 'leftJaw3');
         let leftJaw4 = getKeyPointFromSVG(skeletonGroup, 'leftJaw4');
@@ -297,18 +297,18 @@ export class Skeleton {
         this.bRightHipRightKnee = new Bone().set(rightHip, rightKnee, this, 'body');
         this.bRightKneeRightAnkle = new Bone().set(rightKnee, rightAnkle, this, 'body');
 
-        this.bTopMidRightTop0 = new Bone().set(topMid, rightTop0, this, 'face');
-        this.bTopMidLeftTop0 = new Bone().set(topMid, leftTop0, this, 'face');
-        this.bLeftTop0LeftTop1 = new Bone().set(leftTop0, leftTop1, this, 'face');
-        this.bLeftTop1LeftJaw2 = new Bone().set(leftTop1, leftJaw2, this, 'face');
+        // this.bTopMidRightTop0 = new Bone().set(topMid, rightTop0, this, 'face');
+        // this.bTopMidLeftTop0 = new Bone().set(topMid, leftTop0, this, 'face');
+        // this.bLeftTop0LeftTop1 = new Bone().set(leftTop0, leftTop1, this, 'face');
+        // this.bLeftTop1LeftJaw2 = new Bone().set(leftTop1, leftJaw2, this, 'face');
         this.bLeftJaw2LeftJaw3 = new Bone().set(leftJaw2, leftJaw3, this, 'face');
         this.bLeftJaw3LeftJaw4 = new Bone().set(leftJaw3, leftJaw4, this, 'face');
         this.bLeftJaw4LeftJaw5 = new Bone().set(leftJaw4, leftJaw5, this, 'face');
         this.bLeftJaw5LeftJaw6 = new Bone().set(leftJaw5, leftJaw6, this, 'face');
         this.bLeftJaw6LeftJaw7 = new Bone().set(leftJaw6, leftJaw7, this, 'face');
         this.bLeftJaw7JawMid = new Bone().set(leftJaw7, jawMid, this, 'face');
-        this.bRightTop0RightTop1 = new Bone().set(rightTop0, rightTop1, this, 'face');
-        this.bRightTop1RightJaw2 = new Bone().set(rightTop1, rightJaw2, this, 'face');
+        // this.bRightTop0RightTop1 = new Bone().set(rightTop0, rightTop1, this, 'face');
+        // this.bRightTop1RightJaw2 = new Bone().set(rightTop1, rightJaw2, this, 'face');
         this.bRightJaw2RightJaw3 = new Bone().set(rightJaw2, rightJaw3, this, 'face');
         this.bRightJaw3RightJaw4 = new Bone().set(rightJaw3, rightJaw4, this, 'face');
         this.bRightJaw4RightJaw5 = new Bone().set(rightJaw4, rightJaw5, this, 'face');
@@ -368,18 +368,18 @@ export class Skeleton {
 
         this.faceBones = [
             // Face
-            this.bTopMidRightTop0,
-            this.bRightTop0RightTop1,
-            this.bTopMidLeftTop0,
-            this.bLeftTop0LeftTop1,
-            this.bLeftTop1LeftJaw2,
+            // this.bTopMidRightTop0,
+            // this.bRightTop0RightTop1,
+            // this.bTopMidLeftTop0,
+            // this.bLeftTop0LeftTop1,
+            // this.bLeftTop1LeftJaw2,
             this.bLeftJaw2LeftJaw3,
             this.bLeftJaw3LeftJaw4,
             this.bLeftJaw4LeftJaw5,
             this.bLeftJaw5LeftJaw6,
             this.bLeftJaw6LeftJaw7,
             this.bLeftJaw7JawMid,
-            this.bRightTop1RightJaw2,
+            // this.bRightTop1RightJaw2,
             this.bRightJaw2RightJaw3,
             this.bRightJaw3RightJaw4,
             this.bRightJaw4RightJaw5,
@@ -546,7 +546,7 @@ export class Skeleton {
         }
         return true;
     }
-    
+
     updateFaceParts(face) {
         let posLeftEar = this.parts['leftEar'].position;
         let posRightEar = this.parts['rightEar'].position;
